@@ -2,6 +2,7 @@ import geojson as gj
 from geojson import LineString, Point, Feature
 from turfpy.measurement import point_to_line_distance
 from math import inf
+from decimal import Decimal
 
 def getOrthogonalCoordinates(st, en, target):
 
@@ -26,7 +27,7 @@ file = open('links.geojson')
 gis = gj.load(file)
 
 
-point = Feature(geometry=Point([127.027268062,37.499212063]))
+point = Feature(geometry=Point(list(map(float,input().split(',')))))
 
 print(point)
 
