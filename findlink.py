@@ -1,6 +1,17 @@
 from geojson import load, LineString, Point, Feature
 from turfpy import measurement
 from math import inf
+import argparse
+
+# 인자값을 받을 수 있는 인스턴스 생성
+parser = argparse.ArgumentParser(description='데이터파일 경로와 target을 실행인자값으로 추가해주세요')
+
+# 입력받을 인자값 등록
+parser.add_argument('-links', required=True, default='links.geojson', help='geojson파일 경로를 입력하세요')
+parser.add_argument('-target', required=True, default='127.027268062,37.499212063', help='target의 경위도를 입력하세요')
+
+# 입력받은 인자값을 args에 저장 (type: namespace)
+args = parser.parse_args()
 
 
 
@@ -26,11 +37,11 @@ def getOrthogonalCoordinates(st, en, target):
 
 
 # 주어진 geojson 파일을 열어 geojson 객체(FeatureCollection)로 담는다
-file = open('links.geojson')
+file = open(args.links)
 gis = load(file)
 
 # 경도와 위도를 입력으로 받아 geojson의 점 객체로 만든다
-point = Feature(geometry = Point(list(map(float,input().split(',')))))
+point = Feature(geometry = Point(list(map(float,args.target.split(',')))))
 
 
 # 정답을 담을 변수들을 선언한다. 여기서 한 가지 유의할 점은 link와 target의 사이각이 90도를 넘어간다면 수선의 발이 link에 포함되지 않을 수 있다는 점이다. 때문에 distToLink는 선분의 끝 점과 target사이의 거리가 되고 answer는 수선의 발 사이와 target 사이의 거리가 되어서 다를 수 있다.
