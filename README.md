@@ -10,11 +10,11 @@ pyinstaller를 이용하여 실행파일을 만들었기에
 
 와 같이 작동하지만 맥북에서는 작동하지 않습니다.
 
-~~맥북에서는 python이 설치되어 있어야 하고 turfpy와 geojson 두 라이브러리를 pip를 통해 설치해주시고
+~~맥북에서는 python이 설치되어 있어야 하고 turfpy와 geojson 두 라이브러리를 pip를 통해 설치해주시고~~
 
-~~python3 findlink.py -links links.geojson -target 127.027268062,37.499212063
+~~python3 findlink.py -links links.geojson -target 127.027268062,37.499212063~~
 
-~~라는 방식을 통해 실행시켜주시기 바랍니다.
+~~라는 방식을 통해 실행시켜주시기 바랍니다.~~
 
 -> go를 이용한 프로그램을 사용하여 주시기 바랍니다.
 https://github.com/tajava2006/PJgis_go
